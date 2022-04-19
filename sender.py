@@ -1,6 +1,7 @@
 import re
 import smtplib
 import os
+from email.mime.text import MIMEText
 
 
 
@@ -12,7 +13,9 @@ def send_email(message):
 
     try:
         server.login(sender, password)
-        server.sendmail(sender, send, message)
+        msg = MIMEText(message)
+        server.sendmail(sender, send, msg.as_string())
+        # server.sendmail(sender, send, message)
 
         return "Сообщение отправленно!"
     except Exception as _ex:

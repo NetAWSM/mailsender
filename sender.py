@@ -6,10 +6,10 @@ from email.mime.text import MIMEText
 
 
 def send_email(message):
-    sender = "s.nikiforov@fcaudit.ru"
-    password = "FZgZCEOa6uIW3kTnfPK2"
+    sender = "login"
+    password = "pass"
     send = input("введите получателя: ")
-    server = smtplib.SMTP("mail.fcaudit.ru", 25)
+    server = smtplib.SMTP("domain", 25)
 
     try:
         server.login(sender, password)
